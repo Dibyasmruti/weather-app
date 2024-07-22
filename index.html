@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -124,5 +124,263 @@
 
     </script>
     
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #222;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 470px;
+            background: linear-gradient(135deg, #00feba, #5b548a);
+            color: #0a0303;
+            margin: 100px auto;
+            border-radius: 30px;
+            padding: 40px 35px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            min-height: 100vh;
+        }
+
+        .search {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Add some space between the input and the button */
+        }
+
+        .search input {
+            flex-grow: 1;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid #4a2fe0;
+            flex: 1;
+        }
+
+        .search button {
+            background: #ffffff;
+            border: 1px solid #4a2fe0;
+            border-radius: 20px;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .search img {
+            width: 30px;  /* Adjust the width as needed */
+            height: 30px; /* Adjust the height as needed */
+        }
+
+        .weather-icon {
+            width: 200px; /* Larger size for mobile view */
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            margin: 20px 0; /* Add space around the image */
+        }
+
+        .weather h1 {
+            font-size: 60px;
+            margin: 10px 0;
+        }
+
+        .weather h2 {
+            font-size: 40px;
+            margin: 10px 0 30px;
+        }
+
+        .details {
+            display: flex;
+            align-items: center;
+            padding: 0 0px;
+            margin-top: 20px; /* Reduced top margin */
+            gap: 20px; /* Added space between details */
+            flex-direction: column; /* Stack items vertically */
+        }
+
+        .col {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            gap: 20px; /* Increased space between icon and text */
+        }
+
+        .col img {
+            width: 80px; /* Increased size of icons */
+            height: auto;
+        }
+
+        .humidity, .wind {
+            font-size: 24px; /* Increased font size */
+            font-weight: 500;
+        }
+
+        .error {
+            display: none; /* Hidden by default */
+            background: #ffdddd;
+            color: #d8000c;
+            border: 1px solid #d8000c;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .error.show {
+            display: block; /* Show when needed */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .error p {
+            font-size: 16px; /* Increased font size */
+            margin: 10px 0 0;
+        }
+
+        .error img {
+            width: 40px; /* Adjust size as needed */
+            height: auto;
+            margin-top: 10px;
+        }
+
+        @media (min-width: 769px) {
+            .card {
+                margin: 100px auto;
+                padding: 40px 35px;
+                border-radius: 30px;
+            }
+
+            .weather-icon {
+                width: 180px;
+            }
+
+            .weather h1 {
+                font-size: 80px;
+            }
+
+            .weather h2 {
+                font-size: 45px;
+            }
+
+            .details {
+                gap: 100px;
+                flex-direction: row; /* Keep items horizontal on larger screens */
+            }
+
+            .col img {
+                width: 80px;
+            }
+
+            .humidity, .wind {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <button><img src="immage/search.png" alt="Search"></button>
+        </div>
+        <div class="error">
+            <p>Invalid city name. 404!</p>
+            <img src="immage/error.png" class="err" alt="Error">
+        </div>
+        <div class="weather">
+            <img src="immage/rainy.png" class="weather-icon" alt="Weather Icon">
+            <h1 class="temp">22°C</h1>
+            <h2 class="city">Cuttack</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="immage/humidity.png" alt="Humidity">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="immage/wind.png" alt="Wind Speed">
+                    <div>
+                        <p class="wind">15 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apikey = "4200ab8b9cd3a62873c18cb551e723c5";
+        const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weather-icon");
+        const errorElement = document.querySelector(".error");
+
+        async function checkWeather(city) {
+            const response = await fetch(apiurl + city + `&appid=${apikey}`);
+            
+            if (response.status === 404) {
+                errorElement.classList.add("show");
+                document.querySelector(".weather").style.display = "none";
+            } else {
+                const data = await response.json();
+                document.querySelector(".city").innerHTML = data.name;
+                document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+                document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+                document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+                
+                if (data.weather[0].main === "Clouds") {
+                    weatherIcon.src = "immage/clear.png";
+                } else if (data.weather[0].main === "Clear") {
+                    weatherIcon.src = "immage/clear3.png";
+                } else if (data.weather[0].main === "Rain") {
+                    weatherIcon.src = "immage/rainy2.png";
+                } else if (data.weather[0].main === "Drizzle") {
+                    weatherIcon.src = "immage/drizzle.png";
+                } else if (data.weather[0].main === "Mist") {
+                    weatherIcon.src = "immage/sunny1.png";
+                }
+                
+                document.querySelector(".weather").style.display = "block";
+                errorElement.classList.remove("show");
+            }
+        }
+
+        searchBtn.addEventListener("click", () => {
+            checkWeather(searchBox.value);
+        });
+
+        // Optional: Automatically show error for demonstration
+        // Uncomment the following line to show error message on page load
+        // errorElement.classList.add("show");
+    </script>
 </body>
 </html>
