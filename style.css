@@ -115,65 +115,88 @@ body {
 
 /* mobile */
 
-
-
-/* Mobile view adjustments */
 @media (max-width: 768px) {
     .card {
-        margin: 20px;
+        margin: 10px;
         padding: 20px;
-        border-radius: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #00feba, #5b548a); /* Kept the gradient background */
+        color: #fff;
+        height: auto; /* Ensure the card can expand with content */
+        min-height: 100vh; /* Make sure the card fills the viewport height */
     }
 
     .weather-icon {
-        width: 250px; /* Increased size for mobile view */
-        height: 250px; /* Increased size for mobile view */
-        margin-bottom: 20px; /* Added space below the image */
+        width: 200px; /* Increased the size of the weather icon */
+        height: 200px; /* Make the icon square for consistency */
+        background-size: cover;
+        background-position: center;
+        margin: 20px 0; /* Add vertical space around the image */
     }
 
     .weather h1 {
-        font-size: 50px; /* Adjusted font size for temperature */
-        margin: 10px 0;
+        font-size: 60px; /* Increased font size for better visibility */
+        margin: 10px 0; /* Added margin for spacing */
     }
 
     .weather h2 {
-        font-size: 30px; /* Adjusted font size for city */
-        margin: 10px 0;
+        font-size: 40px; /* Increased font size */
+        margin: 10px 0 30px; /* Added bottom margin to separate from details */
     }
 
     .details {
-        flex-direction: column; /* Stack details vertically */
-        gap: 20px; /* Space between details */
-        align-items: center; /* Center details */
-        margin-top: 20px; /* Added top margin */
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Increased gap between details */
+        margin-top: 20px;
     }
 
     .col {
         display: flex;
         align-items: center;
-        text-align: center; /* Center align text for mobile */
-        gap: 15px; /* Space between icon and text */
+        text-align: center;
+        gap: 20px; /* Increased gap between icon and text */
     }
 
     .col img {
-        width: 70px; /* Adjusted icon size */
+        width: 80px; /* Increased size of icons */
         height: auto;
     }
 
     .humidity, .wind {
-        font-size: 20px; /* Adjusted font size */
+        font-size: 24px; /* Increased font size for better readability */
         font-weight: 500;
     }
 
     .error {
-        font-size: 14px; /* Adjusted font size for error */
-        margin-top: 20px; /* Added margin-top for error section */
+        background: #ffdddd;
+        color: #d8000c;
+        border: 1px solid #d8000c;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .error.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .error p {
+        font-size: 14px;
+        margin: 0;
     }
 
     .error img {
-        width: 40px; /* Adjusted size of error image */
+        width: 24px;
         height: auto;
-        margin-top: 10px;
+        margin-top: 5px;
     }
 }
+
 
