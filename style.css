@@ -116,7 +116,10 @@ body {
 /* mobile */
 
 
- @media (max-width: 768px) {
+
+
+
+@media (max-width: 768px) {
     .card {
         margin: 10px;
         padding: 20px;
@@ -124,25 +127,26 @@ body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background: linear-gradient(135deg, #00feba, #5b548a); /* Kept the gradient background */
         color: #fff;
-        height: calc(100vh - 20px); /* Make the card cover most of the screen height */
+        height: auto; /* Ensure the card can expand with content */
+        min-height: 100vh; /* Make sure the card fills the viewport height */
     }
 
     .weather-icon {
-        width: 150px; /* Increased the size of the weather icon */
-        height: auto;
+        width: 200px; /* Increased the size of the weather icon */
+        height: 200px; /* Make the icon square for consistency */
         background-size: cover;
         background-position: center;
-        margin: 20px 0; /* Add vertical space above and below the image */
+        margin: 20px 0; /* Add vertical space around the image */
     }
 
     .weather h1 {
-        font-size: 45px; /* Increased font size for better visibility */
+        font-size: 60px; /* Increased font size for better visibility */
         margin: 10px 0; /* Added margin for spacing */
     }
 
     .weather h2 {
-        font-size: 30px; /* Increased font size */
-        margin: 5px 0 30px; /* Added bottom margin to separate from details */
+        font-size: 40px; /* Increased font size */
+        margin: 10px 0 30px; /* Added bottom margin to separate from details */
     }
 
     .details {
@@ -156,16 +160,16 @@ body {
         display: flex;
         align-items: center;
         text-align: center;
-        gap: 15px; /* Increased gap between icon and text */
+        gap: 20px; /* Increased gap between icon and text */
     }
 
     .col img {
-        width: 60px; /* Increased size of icons */
+        width: 80px; /* Increased size of icons */
         height: auto;
     }
 
     .humidity, .wind {
-        font-size: 20px; /* Increased font size for better readability */
+        font-size: 24px; /* Increased font size for better readability */
         font-weight: 500;
     }
 
@@ -198,3 +202,4 @@ body {
         margin-top: 5px;
     }
 }
+
