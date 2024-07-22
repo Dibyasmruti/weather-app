@@ -115,88 +115,72 @@ body {
 
 /* mobile */
 
+
+/* Mobile view adjustments */
 @media (max-width: 768px) {
+    body {
+        padding: 0; /* Remove default padding */
+    }
+
     .card {
-        margin: 10px;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background: linear-gradient(135deg, #00feba, #5b548a); /* Kept the gradient background */
-        color: #fff;
-        height: auto; /* Ensure the card can expand with content */
-        min-height: 100vh; /* Make sure the card fills the viewport height */
+        margin: 10px; /* Reduced margin to fit screen */
+        padding: 15px; /* Adjusted padding */
+        border-radius: 15px;
+        overflow: hidden; /* Hide any overflow */
     }
 
     .weather-icon {
-        width: 200px; /* Increased the size of the weather icon */
-        height: 200px; /* Make the icon square for consistency */
-        background-size: cover;
-        background-position: center;
-        margin: 20px 0; /* Add vertical space around the image */
+        width: 100%; /* Make weather icon fill available width */
+        max-width: 250px; /* Maximum width to prevent excessive enlargement */
+        height: auto; /* Keep aspect ratio */
+        margin: 10px 0; /* Added margin around the image */
     }
 
     .weather h1 {
-        font-size: 60px; /* Increased font size for better visibility */
-        margin: 10px 0; /* Added margin for spacing */
+        font-size: 40px; /* Adjusted font size for better fit */
+        margin: 5px 0;
     }
 
     .weather h2 {
-        font-size: 40px; /* Increased font size */
-        margin: 10px 0 30px; /* Added bottom margin to separate from details */
+        font-size: 25px; /* Adjusted font size for better fit */
+        margin: 5px 0;
     }
 
     .details {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px; /* Increased gap between details */
-        margin-top: 20px;
+        flex-direction: column; /* Stack details vertically */
+        gap: 15px; /* Space between details */
+        align-items: center; /* Center details */
+        margin-top: 20px; /* Margin at the top */
     }
 
     .col {
         display: flex;
         align-items: center;
-        text-align: center;
-        gap: 20px; /* Increased gap between icon and text */
+        text-align: center; /* Center align text for mobile */
+        gap: 10px; /* Space between icon and text */
     }
 
     .col img {
-        width: 80px; /* Increased size of icons */
+        width: 50px; /* Adjusted icon size */
         height: auto;
     }
 
     .humidity, .wind {
-        font-size: 24px; /* Increased font size for better readability */
+        font-size: 18px; /* Adjusted font size */
         font-weight: 500;
     }
 
     .error {
-        background: #ffdddd;
-        color: #d8000c;
-        border: 1px solid #d8000c;
-        border-radius: 8px;
-        padding: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .error.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .error p {
-        font-size: 14px;
-        margin: 0;
+        font-size: 14px; /* Adjusted font size for error */
+        margin-top: 15px; /* Added margin-top for error section */
     }
 
     .error img {
-        width: 24px;
+        width: 30px; /* Adjusted size of error image */
         height: auto;
         margin-top: 5px;
     }
 }
+
 
 
