@@ -128,7 +128,6 @@ body {
 #blink {
     animation: blink-animation 1s steps(5, start) infinite;
 }
-
 /* Media Queries for Phone Screens */
 @media (max-width: 768px) {
     .card {
@@ -185,7 +184,7 @@ body {
 @media (max-width: 480px) {
     .card {
         margin: 5px; /* Reduced margin to fit smaller screens */
-        padding: 30px; /* Further reduced padding for compact layout */
+        padding: 10px; /* Further reduced padding for compact layout */
         border-radius: 8px; /* Smaller border-radius for a tighter look */
     }
 
@@ -210,7 +209,7 @@ body {
     }
 
     .humidity, .wind {
-        font-size: 20px; /* Adjusted font size for very small screens */
+        font-size: 18px; /* Adjusted font size for very small screens */
     }
 
     .error {
@@ -220,7 +219,7 @@ body {
     }
 
     .error img {
-        width: 80px; /* Further reduced width of the error image for very small screens */
+        width: 60px; /* Further reduced width of the error image for very small screens */
         height: auto; /* Ensure the height adjusts proportionally */
         margin: 5px 0; /* Further adjusted margin for spacing */
     }
