@@ -156,7 +156,7 @@ body {
     }
 
     .col img {
-        width: 50px; /* Reduced width for images to fit better on small screens */
+        width: 60px; /* Reduced width for images to fit better on small screens */
     }
 
     .humidity, .wind {
@@ -165,19 +165,19 @@ body {
 
     .error {
         text-align: center; /* Center text for better alignment */
-        font-size: 18px; /* Adjusted font size for better readability */
+        font-size: 25px; /* Adjusted font size for better readability */
         padding: 10px; /* Added padding for spacing */
     }
 
     .error img {
-        width: 40px; /* Adjusted width of the error image for better fit */
+        width: 80px; /* Adjusted width of the error image for better fit */
         height: auto; /* Ensure the height adjusts proportionally */
         margin: 10px 0; /* Adjusted margin for spacing */
     }
 
     .error p {
-        font-size: 16px; /* Adjusted font size for better readability */
-        margin-top: 10px; /* Added margin-top for spacing between text and image */
+        font-size: 20px; /* Adjusted font size for better readability */
+        margin-top: 15px; /* Added margin-top for spacing between text and image */
     }
 }
 
@@ -185,7 +185,7 @@ body {
 @media (max-width: 480px) {
     .card {
         margin: 5px; /* Reduced margin to fit smaller screens */
-        padding: 10px; /* Further reduced padding for compact layout */
+        padding: 30px; /* Further reduced padding for compact layout */
         border-radius: 8px; /* Smaller border-radius for a tighter look */
     }
 
@@ -210,17 +210,17 @@ body {
     }
 
     .humidity, .wind {
-        font-size: 18px; /* Adjusted font size for very small screens */
+        font-size: 20px; /* Adjusted font size for very small screens */
     }
 
     .error {
         text-align: center; /* Center text for better alignment */
-        font-size: 16px; /* Adjusted font size for very small screens */
+        font-size: 20px; /* Adjusted font size for very small screens */
         padding: 5px; /* Reduced padding for tighter layout */
     }
 
     .error img {
-        width: 40px; /* Further reduced width of the error image for very small screens */
+        width: 80px; /* Further reduced width of the error image for very small screens */
         height: auto; /* Ensure the height adjusts proportionally */
         margin: 5px 0; /* Further adjusted margin for spacing */
     }
