@@ -129,51 +129,98 @@ body {
     animation: blink-animation 1s steps(5, start) infinite;
 }
 
-@keyframes blink-animation {
-    to {
-        visibility: hidden;
-    }
-}
-
-/* mob */
-
-@media (max-width: 1000px) {
+/* Media Queries for Phone Screens */
+@media (max-width: 768px) {
     .card {
-        margin: 20px;
-        padding: 20px;
-        border-radius: 15px;
+        margin: 10px; /* Adjusted margin for better spacing on small screens */
+        padding: 15px; /* Reduced padding for a more compact layout */
+        border-radius: 10px; /* Reduced border-radius for a sleeker look */
     }
 
     .weather-icon {
-        width: 150px;
+        width: 120px; /* Reduced width for smaller screens */
     }
 
     .weather h1 {
-        font-size: 60px;
+        font-size: 50px; /* Adjusted font size for better readability on smaller screens */
     }
 
     .weather h2 {
-        font-size: 35px;
+        font-size: 30px; /* Adjusted font size for better readability */
     }
 
     .details {
         flex-direction: column;
-        gap: 25px;
+        gap: 20px; /* Reduced gap for a more compact layout */
         align-items: flex-start;
     }
 
     .col img {
-        width: 70px;
+        width: 50px; /* Reduced width for images to fit better on small screens */
     }
 
     .humidity, .wind {
-        font-size: 22px;
+        font-size: 20px; /* Adjusted font size for better readability */
+    }
+
+    .error {
+        font-size: 18px; /* Adjusted font size for better readability */
+    }
+
+    .error img {
+        width: 50px; /* Reduced width of the error image for smaller screens */
+        height: auto; /* Ensure the height adjusts proportionally */
+        margin-top: 10px; /* Adjust margin for spacing */
     }
 
     .error p {
-        font-size: 20px;
+        font-size: 16px; /* Adjusted font size for better readability */
     }
 }
 
+/* Additional Media Query for Extra Small Devices */
+@media (max-width: 480px) {
+    .card {
+        margin: 5px; /* Reduced margin to fit smaller screens */
+        padding: 10px; /* Further reduced padding for compact layout */
+        border-radius: 8px; /* Smaller border-radius for a tighter look */
+    }
 
+    .weather-icon {
+        width: 100px; /* Further reduced width for very small screens */
+    }
 
+    .weather h1 {
+        font-size: 40px; /* Further reduced font size for very small screens */
+    }
+
+    .weather h2 {
+        font-size: 25px; /* Further reduced font size */
+    }
+
+    .details {
+        gap: 15px; /* Reduced gap to fit content better */
+    }
+
+    .col img {
+        width: 40px; /* Reduced width for very small screens */
+    }
+
+    .humidity, .wind {
+        font-size: 18px; /* Adjusted font size for very small screens */
+    }
+
+    .error {
+        font-size: 16px; /* Adjusted font size for very small screens */
+    }
+
+    .error img {
+        width: 40px; /* Further reduced width of the error image for very small screens */
+        height: auto; /* Ensure the height adjusts proportionally */
+        margin-top: 5px; /* Further adjusted margin for spacing */
+    }
+
+    .error p {
+        font-size: 14px; /* Adjusted font size for very small screens */
+    }
+}
